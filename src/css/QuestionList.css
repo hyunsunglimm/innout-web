@@ -1,0 +1,37 @@
+h1 {
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+div.container {
+  display: flex;
+}
+
+div.top {
+  width: 140%;
+}
+
+div.bottom {
+  width: 60%;
+}
+
+span {
+  text-align: center;
+  font-size: 17px;
+}
+
+span.no {
+  padding: 10px 10%;
+}
+
+span.titlee {
+  padding: 10px 35%;
+}
+
+span.writer {
+  padding: 10px 15%;
+}
+
+span.date {
+  padding: 10px 15%;
+}

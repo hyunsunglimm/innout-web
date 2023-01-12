@@ -11,6 +11,7 @@ import "../css/App.css";
 import Question from "./Questions";
 import Notice from "./Notice";
 import Login from "./Login";
+import QuestionList from "./QuestionList";
 
 // function App() {
 //   return (
@@ -30,6 +31,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" />
+        <Route path="/question_list" element={<QuestionList />} />
         <Route path="/questions" element={<Question />} />
         <Route path="/notice" element={<Notice />} />
         <Route path="/sign-up" element={<Login />} />
