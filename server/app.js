@@ -11,6 +11,7 @@ const questionList = [
   // 샘플 데이터
   {
     no: 1,
+    title: "가가입니다.",
     text: "물이 새요.",
     writer: "임통",
     createdAt: "2023.01.11",
@@ -22,9 +23,10 @@ app.get("/api/data", (req, res) => {
 });
 
 app.post("/api/data", (req, res) => {
-  const { text, writer, createdAt } = req.body;
+  const { title, text, writer, createdAt } = req.body;
   questionList.push({
     no: no++,
+    title,
     text,
     writer,
     createdAt,
@@ -35,5 +37,3 @@ app.post("/api/data", (req, res) => {
 app.listen(4000, () => {
   console.log("server start!!");
 });
-
-// 이번엔 되라.

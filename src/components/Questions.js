@@ -30,10 +30,11 @@ function Question() {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
+    const title = e.target.title.value;
     const text = e.target.text.value;
     const writer = e.target.writer.value;
     const createdAt = e.target.createdAt.value;
-    axios.post(SERVER_URL, { text, writer, createdAt });
+    axios.post(SERVER_URL, { title, text, writer, createdAt });
     fetchData();
   };
 
@@ -41,6 +42,8 @@ function Question() {
     <div>
       <h1>문의 게시판</h1>
       <form onSubmit={onSubmitHandler}>
+        <label htmlFor="title">제목 : </label>
+        <input name="title" id="title" />
         <label htmlFor="text">문의 내용 : </label>
         <input name="text" id="text" />
         <label htmlFor="writer">작성자 : </label>{" "}
@@ -55,6 +58,7 @@ function Question() {
       {questionList?.map((question) => (
         <div key={question.no}>
           <div>{question.no}</div>
+          <div>{question.title}</div>
           <div>{question.text}</div>
           <div>{question.writer}</div>
           <div>{question.createdAt}</div>
