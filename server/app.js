@@ -6,7 +6,7 @@ app.use(cors()); // 데이터 전송시 cors 에러를 도와주는 라이브러
 app.use(express.json()); // parsing 을 도와주는 API
 app.use(express.urlencoded({ extended: true }));
 
-let no = 2;
+let no = 2; // 이게 없어서 서버가 안됐었음 ...
 const questionList = [
   // 샘플 데이터
   {
