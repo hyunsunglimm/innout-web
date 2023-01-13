@@ -45,16 +45,5 @@
 }
 
 div.login {
-  border: solid 3px white;
-  border-radius: 7px;
-}
-
-div.login:hover {
-  background: white;
-
-  transition: all 0.5s ease-out;
-}
-
-#login:hover {
-  color: black;
+  margin-left: 40px;
 }

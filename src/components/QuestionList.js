@@ -18,93 +18,95 @@ export const StyledLink = styled(Link)`
 function QuestionList() {
   return (
     <>
-      <h1>문의 게시판</h1>
-      <hr></hr>
-      <hr></hr>
-      <div className="container">
-        <div className="top">
-          <span className="no">번호</span>
-          <span className="titlee">제목</span>
-          <hr></hr>
-          <hr></hr>
+      {/* 여기부터 작성글 (나중엔 데이터로 받아와야함.)*/}
+      <section className="notice">
+        <div className="page-title">
+          <div className="container">
+            <h3>문의 게시판</h3>
+          </div>
         </div>
-        <div className="bottom">
-          <span className="writer">작성자</span>
-          <span className="date">작성일</span>
-          <hr></hr>
-          <hr></hr>
-        </div>
-      </div>
-      {/* 여기부터 작성글 */}
-      <div className="container">
-        <div className="top">
-          <span className="no">1</span>
-          <span className="titlee">
-            <StyledLink
-              to="/questions"
-              // style={{ textDecoration: "none", color: "black" }}
-            >
-              도배가 필요합니다.
-            </StyledLink>
-          </span>
-          <hr></hr>
-          <hr></hr>
-        </div>
-        <div className="bottom">
-          <span className="writer">가가201xxx</span>
-          <span className="date">2023.01.12</span>
-          <hr></hr>
-          <hr></hr>
-        </div>
-      </div>
 
-      <div className="container">
-        <div className="top">
-          <span className="no">2</span>
-          <span className="titlee">
-            <StyledLink
-              to="/questions"
-              // style={{ textDecoration: "none", color: "black" }}
-            >
-              타일이 무너집니다.
-            </StyledLink>
-          </span>
-          <hr></hr>
-          <hr></hr>
+        {/* 검색 기능 */}
+        <div id="board-search">
+          <div className="container">
+            <div className="search-window">
+              <form action="">
+                <div className="search-wrap">
+                  <input
+                    id="search"
+                    type="search"
+                    name=""
+                    placeholder="검색어를 입력해주세요."
+                    // value=""
+                  />
+                  <button type="submit" className="btn btn-dark">
+                    검색
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-        <div className="bottom">
-          <span className="writer">이지201xxx</span>
-          <span className="date">2023.01.13</span>
-          <hr></hr>
-          <hr></hr>
-        </div>
-      </div>
 
-      <div className="container">
-        <div className="top">
-          <span className="no">3</span>
-          <span className="titlee">
-            <StyledLink
-              to="/questions"
-              // style={{ textDecoration: "none", color: "black" }}
-            >
-              형광등 교체
-            </StyledLink>
-          </span>
-          <hr></hr>
-          <hr></hr>
-        </div>
-        <div className="bottom">
-          <span className="writer">보아스201xxx</span>
-          <span className="date">2023.01.13</span>
-          <hr></hr>
-          <hr></hr>
-        </div>
-      </div>
+        {/* 리스트 에리어 */}
+        <div id="board-list">
+          <div className="container">
+            <table className="board-table">
+              <thead>
+                <tr>
+                  <th scope="col" className="th-num">
+                    번호
+                  </th>
+                  <th scope="col" className="th-title">
+                    제목
+                  </th>
+                  <th scope="col" className="th-date">
+                    작성자
+                  </th>
+                  <th scope="col" className="th-date">
+                    등록일
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>3</td>
+                  <th>
+                    <Link to="/questions">
+                      [공지사항] 개인정보 처리방침 변경안내처리방침
+                    </Link>
+                  </th>
+                  <td>인앤아웃</td>
+                  <td>2023.01.13</td>
+                </tr>
 
-      <StyledLink to="/questions">
-        <button className="question-button">문의 작성</button>
-      </StyledLink>
+                <tr>
+                  <td>2</td>
+                  <th>
+                    <Link to="/questions">물이 잘 안나옵니다. (수압 약함)</Link>
+                  </th>
+                  <td>가가201호</td>
+                  <td>2023.01.12</td>
+                </tr>
+
+                <tr>
+                  <td>1</td>
+                  <th>
+                    <Link to="/questions">새해복 많이 받으세요.</Link>
+                  </th>
+                  <td>이지201호</td>
+                  <td>2023.01.01</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+      <div className="writeBtn">
+        <StyledLink to="/questions">
+          <button className="question-button">문의 작성</button>
+        </StyledLink>
+      </div>
     </>
   );
 }
