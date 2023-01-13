@@ -1,69 +1,32 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "./Button";
 import "../css/Navbar.css";
 
 function Navbar() {
-  const [click, setClick] = useState(false);
-  const [button, setButton] = useState(true);
-
-  const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
-
-  // 화면 크기에 따라서 버튼이 보이고 안보이도록 설정한다.
-  const showButton = () => {
-    if (window.innerWidth <= 960) {
-      setButton(false);
-    } else {
-      setButton(true);
-    }
-  };
-
-  // SIGNUP 버튼이 사이즈가 줄어들면 없어지도록 한다.
-  useEffect(() => {
-    showButton();
-  }, []);
-
-  // window.addEventListener("resize", showButton);
-
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        {/* 모바일버전에서 클릭하면 메뉴가 보이도록 설정하는 것도 한다. (close Mobile Menu)는 다시 버튼 누르면 없어지고 생기고 하도록 한다. */}
-        <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+        <Link to="/" className="nav-links" style={{ fontSize: 35 }}>
           IN N OUT
-          <i className="fab fa-typo3" />
         </Link>
-        <div className="menu-icon" onClick={handleClick}>
-          <i className={click ? "fas fa-times" : "fas fa-bars"} />
-        </div>
-        <ul className={click ? "nav-menu active" : "nav-menu"}>
+        <ul className="nav-menu">
           <li className="nav-item">
-            <Link to="/notice" className="nav-links" onClick={closeMobileMenu}>
+            <Link to="/notice" className="nav-links">
               공지사항
             </Link>
           </li>
           <li className="nav-item">
-            <Link
-              to="/question_list"
-              className="nav-links"
-              onClick={closeMobileMenu}
-            >
+            <Link to="/question_list" className="nav-links">
               1:1 문의
             </Link>
           </li>
-
-          <li className="nav-item">
-            <Link
-              to="/sign-up"
-              className="nav-links-mobile"
-              onClick={closeMobileMenu}
-            >
-              Sign up
-            </Link>
-          </li>
+          <div className="login">
+            <li className="nav-item">
+              <Link to="/sign-up" className="nav-links" id="login">
+                로그인
+              </Link>
+            </li>
+          </div>
         </ul>
-        {button && <Button buttonStyle="btn--outline">SIGN UP</Button>}
       </div>
     </nav>
   );
