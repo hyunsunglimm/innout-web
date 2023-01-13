@@ -57,6 +57,54 @@ function QuestionList() {
           <hr></hr>
         </div>
       </div>
+
+      <div className="container">
+        <div className="top">
+          <span className="no">2</span>
+          <span className="titlee">
+            <StyledLink
+              to="/questions"
+              // style={{ textDecoration: "none", color: "black" }}
+            >
+              타일이 무너집니다.
+            </StyledLink>
+          </span>
+          <hr></hr>
+          <hr></hr>
+        </div>
+        <div className="bottom">
+          <span className="writer">이지201xxx</span>
+          <span className="date">2023.01.13</span>
+          <hr></hr>
+          <hr></hr>
+        </div>
+      </div>
+
+      <div className="container">
+        <div className="top">
+          <span className="no">3</span>
+          <span className="titlee">
+            <StyledLink
+              to="/questions"
+              // style={{ textDecoration: "none", color: "black" }}
+            >
+              형광등 교체
+            </StyledLink>
+          </span>
+          <hr></hr>
+          <hr></hr>
+        </div>
+        <div className="bottom">
+          <span className="writer">보아스201xxx</span>
+          <span className="date">2023.01.13</span>
+          <hr></hr>
+          <hr></hr>
+        </div>
+      </div>
+
+      <StyledLink to="/questions">
+        <button className="question-button">문의 작성</button>
+      </StyledLink>
     </>
   );
 }
