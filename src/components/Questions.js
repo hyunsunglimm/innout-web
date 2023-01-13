@@ -39,21 +39,44 @@ function Question() {
   };
 
   return (
-    <div>
+    <>
       <h1>문의 게시판</h1>
-      <form onSubmit={onSubmitHandler}>
-        <label htmlFor="title">제목 : </label>
-        <input name="title" id="title" />
-        <label htmlFor="text">문의 내용 : </label>
-        <input name="text" id="text" />
-        <label htmlFor="writer">작성자 : </label>{" "}
-        <input name="writer" id="writer" />
-        {/* 후에 로그인 데이터 (ID)로 가져옴 */}
-        <label htmlFor="createdAt">작성일시 : </label>
-        <input name="createdAt" id="createdAt" />
-        {/* 후에 현재시각으로 자동 입력 */}
-        <input type="submit" value="저장" />
-      </form>
+      <div className="container">
+        <form onSubmit={onSubmitHandler}>
+          <div>
+            <label htmlFor="title">제목</label>
+            <br></br>
+            <input name="title" id="title" placeholder="제목을 입력해주세요" />
+          </div>
+          <div>
+            <label htmlFor="writer">작성자</label>
+            <br></br>
+            <input
+              name="writer"
+              id="writer"
+              placeholder="나중에 아이디로 대체됩니다."
+            />
+          </div>
+          <div>
+            <label htmlFor="text">문의 내용</label>
+            <br></br>
+            <input name="text" id="text" placeholder="내용을 입력해주세요" />
+          </div>
+          {/* 후에 로그인 데이터 (ID)로 가져옴 */}
+          <div>
+            <label htmlFor="createdAt">작성일시</label>
+            <br></br>
+            <input
+              name="createdAt"
+              id="createdAt"
+              placeholder="나중에 현재시각으로 자동입력됩니다."
+            />
+          </div>
+          {/* 후에 현재시각으로 자동 입력 */}
+          <input type="submit" value="저장" />
+        </form>
+      </div>
+
       {/* 여기서부터 페이지 출력 */}
       {questionList?.map((question) => (
         <div key={question.no}>
@@ -64,7 +87,7 @@ function Question() {
           <div>{question.createdAt}</div>
         </div>
       ))}
-    </div>
+    </>
   );
 }
 

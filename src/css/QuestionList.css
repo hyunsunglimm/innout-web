@@ -10,6 +10,12 @@
   cursor: pointer;
 }
 
+.question-button:hover {
+  background: black;
+  color: white;
+  transition: all 0.5s ease-out;
+}
+
 div.blank {
   margin: 50px 0px;
 }
@@ -20,12 +26,6 @@ div.writeBtn {
   margin-right: auto;
   width: 100px;
   float: none;
-}
-
-.question-button:hover {
-  background: black;
-  color: white;
-  transition: all 0.5s ease-out;
 }
 
 table {
@@ -64,6 +64,7 @@ section.notice {
   font-size: 14px;
   padding: 7px 14px;
   border: 1px solid #ccc;
+  margin-bottom: 0;
 }
 #board-search .search-window .search-wrap input:focus {
   border-color: #333;
