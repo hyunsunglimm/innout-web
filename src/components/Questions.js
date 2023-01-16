@@ -38,6 +38,15 @@ function Question() {
     fetchData();
   };
 
+  const today = () => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth() + 1;
+    const date = now.getDate();
+
+    return `${year}.${month}.${date}`;
+  };
+
   return (
     <>
       <h1>문의 게시판</h1>
@@ -66,11 +75,7 @@ function Question() {
           <div>
             <label htmlFor="createdAt">작성일시</label>
             <br></br>
-            <input
-              name="createdAt"
-              id="createdAt"
-              placeholder="나중에 현재시각으로 자동입력됩니다."
-            />
+            <input name="createdAt" id="createdAt" defaultValue={today()} />
           </div>
           {/* 후에 현재시각으로 자동 입력 */}
           <input type="submit" value="저장" />
