@@ -26,7 +26,7 @@ function QuestionList() {
           </div>
         </div>
 
-        {/* 검색 기능 */}
+        {/* 검색 기능 (만들어야함) */}
         <div id="board-search">
           <div className="container">
             <div className="search-window">
@@ -73,6 +73,7 @@ function QuestionList() {
                   <td>3</td>
                   <th>
                     <Link to="/questions">
+                      {/* 나중에 글 내용으로 링크 처리 */}
                       [공지사항] 개인정보 처리방침 변경안내처리방침
                     </Link>
                   </th>

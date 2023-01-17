@@ -1,6 +1,7 @@
 /* eslint-disable */
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../css/Questions.css";
 
 const SERVER_URL = "http://localhost:4000/api/data";
@@ -49,7 +50,7 @@ function Question() {
 
   return (
     <>
-      <h1>문의 게시판</h1>
+      <h3>문의 게시판</h3>
       <div className="container">
         <form onSubmit={onSubmitHandler}>
           <div>
@@ -82,14 +83,46 @@ function Question() {
         </form>
       </div>
 
+      <div id="board-list">
+        <div className="container">
+          <table className="board-table">
+            <thead>
+              <tr>
+                <th scope="col" className="th-num">
+                  번호
+                </th>
+                <th scope="col" className="th-title">
+                  제목
+                </th>
+                <th scope="col" className="th-date">
+                  작성자
+                </th>
+                <th scope="col" className="th-date">
+                  등록일
+                </th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+
       {/* 여기서부터 페이지 출력 */}
       {questionList?.map((question) => (
-        <div key={question.no}>
-          <div>{question.no}</div>
-          <div>{question.title}</div>
-          <div>{question.text}</div>
-          <div>{question.writer}</div>
-          <div>{question.createdAt}</div>
+        <div id="board-list">
+          <div className="container">
+            <table className="board-table">
+              <tbody>
+                <tr>
+                  <td className="no">{question.no}</td>
+                  <th>
+                    <Link to="/questions">{question.title}</Link>
+                  </th>
+                  <td className="writer">{question.writer}</td>
+                  <td className="date">{today()}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       ))}
     </>
