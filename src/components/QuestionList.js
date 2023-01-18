@@ -6,6 +6,7 @@
 import { Link } from "react-router-dom";
 import "../css/QuestionList.css";
 import styled from "styled-components";
+// import Detail from "./Detail";
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
@@ -103,6 +104,7 @@ function QuestionList() {
           </div>
         </div>
       </section>
+
       <div className="writeBtn">
         <StyledLink to="/questions">
           <button className="question-button">문의 작성</button>

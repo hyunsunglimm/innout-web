@@ -115,10 +115,12 @@ function Question() {
                 <tr>
                   <td className="no">{question.no}</td>
                   <th>
-                    <Link to="/questions">{question.title}</Link>
+                    <Link to={`/questions/${question.no}`} key={question.no}>
+                      {question.title}
+                    </Link>
                   </th>
                   <td className="writer">{question.writer}</td>
-                  <td className="date">{today()}</td>
+                  <td className="date">{question.createdAt}</td>
                 </tr>
               </tbody>
             </table>

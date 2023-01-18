@@ -8,10 +8,11 @@ import {
 import React from "react";
 import Navbar from "./Navbar";
 import "../css/App.css";
-import Question from "./Questions";
+import Questions from "./Questions";
 import Notice from "./Notice";
 import Login from "./Login";
 import QuestionList from "./QuestionList";
+import QuestionText from "./QuestionText";
 
 // function App() {
 //   return (
@@ -32,9 +33,10 @@ function App() {
       <Routes>
         <Route path="/" />
         <Route path="/question_list" element={<QuestionList />} />
-        <Route path="/questions" element={<Question />} />
+        <Route path="/questions" element={<Questions />} />
         <Route path="/notice" element={<Notice />} />
         <Route path="/sign-up" element={<Login />} />
+        <Route path="/questions/:no" element={<QuestionText />} />
       </Routes>
     </Router>
   );
