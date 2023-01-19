@@ -22,6 +22,12 @@ app.get("/api/data", (req, res) => {
   res.json(questionList);
 });
 
+for (let i = 1; i < 10000; i++) {
+  app.get(`/api/data/${i}`, (req, res) => {
+    res.json(questionList[i - 1]);
+  });
+}
+
 app.post("/api/data", (req, res) => {
   const { title, text, writer, createdAt } = req.body;
   questionList.push({

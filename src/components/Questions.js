@@ -37,6 +37,7 @@ function Question() {
     const createdAt = e.target.createdAt.value;
     axios.post(SERVER_URL, { title, text, writer, createdAt });
     fetchData();
+    alert("글이 작성되었습니다.");
   };
 
   const today = () => {
@@ -108,14 +109,14 @@ function Question() {
 
       {/* 여기서부터 페이지 출력 */}
       {questionList?.map((question) => (
-        <div id="board-list">
+        <div id="board-list" key={question.no}>
           <div className="container">
             <table className="board-table">
               <tbody>
                 <tr>
                   <td className="no">{question.no}</td>
                   <th>
-                    <Link to={`/questions/${question.no}`} key={question.no}>
+                    <Link to={`/questions/${question.no}`}>
                       {question.title}
                     </Link>
                   </th>
