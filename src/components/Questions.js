@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../css/Questions.css";
+import { useNavigate } from "react-router-dom";
 
 const SERVER_URL = "http://localhost:4000/api/data";
 
@@ -38,7 +39,10 @@ function Question() {
     axios.post(SERVER_URL, { title, text, writer, createdAt });
     fetchData();
     alert("글이 작성되었습니다.");
+    history("/question_list");
   };
+
+  const history = useNavigate();
 
   const today = () => {
     const now = new Date();
@@ -52,14 +56,15 @@ function Question() {
   return (
     <>
       <h3>문의 게시판</h3>
+
       <div className="container">
         <form onSubmit={onSubmitHandler}>
-          <div>
+          <div className="input">
             <label htmlFor="title">제목</label>
             <br></br>
             <input name="title" id="title" placeholder="제목을 입력해주세요" />
           </div>
-          <div>
+          <div className="input">
             <label htmlFor="writer">작성자</label>
             <br></br>
             <input
@@ -68,66 +73,21 @@ function Question() {
               placeholder="나중에 아이디로 대체됩니다."
             />
           </div>
-          <div>
+          <div className="input">
             <label htmlFor="text">문의 내용</label>
             <br></br>
-            <input name="text" id="text" placeholder="내용을 입력해주세요" />
+            <textarea name="text" id="text" placeholder="내용을 입력해주세요" />
           </div>
           {/* 후에 로그인 데이터 (ID)로 가져옴 */}
-          <div>
+          <div className="input">
             <label htmlFor="createdAt">작성일시</label>
-            <br></br>
+
             <input name="createdAt" id="createdAt" defaultValue={today()} />
           </div>
           {/* 후에 현재시각으로 자동 입력 */}
           <input type="submit" value="저장" />
         </form>
       </div>
-
-      <div id="board-list">
-        <div className="container">
-          <table className="board-table">
-            <thead>
-              <tr>
-                <th scope="col" className="th-num">
-                  번호
-                </th>
-                <th scope="col" className="th-title">
-                  제목
-                </th>
-                <th scope="col" className="th-date">
-                  작성자
-                </th>
-                <th scope="col" className="th-date">
-                  등록일
-                </th>
-              </tr>
-            </thead>
-          </table>
-        </div>
-      </div>
-
-      {/* 여기서부터 페이지 출력 */}
-      {questionList?.map((question) => (
-        <div id="board-list" key={question.no}>
-          <div className="container">
-            <table className="board-table">
-              <tbody>
-                <tr>
-                  <td className="no">{question.no}</td>
-                  <th>
-                    <Link to={`/questions/${question.no}`}>
-                      {question.title}
-                    </Link>
-                  </th>
-                  <td className="writer">{question.writer}</td>
-                  <td className="date">{question.createdAt}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      ))}
     </>
   );
 }

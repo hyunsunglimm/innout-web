@@ -8,6 +8,8 @@ import "../css/QuestionList.css";
 import styled from "styled-components";
 // import Detail from "./Detail";
 
+import useFetch from "../hooks/useFetch";
+
 export const StyledLink = styled(Link)`
   text-decoration: none;
   color: black;
@@ -17,6 +19,8 @@ export const StyledLink = styled(Link)`
 `;
 
 function QuestionList() {
+  const data = useFetch("http://localhost:4000/api/data");
+
   return (
     <>
       {/* 여기부터 작성글 (나중엔 데이터로 받아와야함.)*/}
@@ -70,35 +74,18 @@ function QuestionList() {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>3</td>
-                  <th>
-                    <Link to="/questions">
-                      {/* 나중에 글 내용으로 링크 처리 */}
-                      [공지사항] 개인정보 처리방침 변경안내처리방침
-                    </Link>
-                  </th>
-                  <td>인앤아웃</td>
-                  <td>2023.01.13</td>
-                </tr>
-
-                <tr>
-                  <td>2</td>
-                  <th>
-                    <Link to="/questions">물이 잘 안나옵니다. (수압 약함)</Link>
-                  </th>
-                  <td>가가201호</td>
-                  <td>2023.01.12</td>
-                </tr>
-
-                <tr>
-                  <td>1</td>
-                  <th>
-                    <Link to="/questions">새해복 많이 받으세요.</Link>
-                  </th>
-                  <td>이지201호</td>
-                  <td>2023.01.01</td>
-                </tr>
+                {data.map((question) => (
+                  <tr key={question.no}>
+                    <td>{question.no}</td>
+                    <th>
+                      <Link to={`/questions/${question.no}`}>
+                        {question.title}
+                      </Link>
+                    </th>
+                    <td>{question.writer}</td>
+                    <td>{question.createdAt}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>

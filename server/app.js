@@ -13,7 +13,7 @@ const questionList = [
     no: 1,
     title: "가가입니다.",
     text: "물이 새요.",
-    writer: "임통",
+    writer: "가가201호",
     createdAt: "2023.01.11",
   },
 ];

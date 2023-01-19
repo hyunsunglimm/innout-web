@@ -162,3 +162,8 @@ input {
 .board-table .date {
   width: 200px;
 }
+
+.container textarea {
+  width: 1076px;
+  height: 200px;
+}
