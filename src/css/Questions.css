@@ -164,6 +164,6 @@ input {
 }
 
 .container textarea {
-  width: 1076px;
+  width: 100%;
   height: 200px;
 }

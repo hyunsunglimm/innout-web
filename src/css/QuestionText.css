@@ -5,3 +5,32 @@
 .question-text .container p {
   margin-top: 5px;
 }
+
+.question-text button {
+  margin-right: 10px;
+  background-color: white;
+  border: 2px solid black;
+  width: 100px;
+  border-radius: 5px;
+  padding: 7px 10px;
+  cursor: pointer;
+}
+
+.question-text button:hover {
+  background: black;
+  color: white;
+  transition: all 0.5s ease-out;
+}
+
+.question-text .container a {
+  text-decoration: none;
+}
+
+a {
+  color: black;
+}
+
+button:hover a {
+  color: white;
+  transition: all 0.5s ease-out;
+}

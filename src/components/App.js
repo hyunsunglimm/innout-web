@@ -13,6 +13,7 @@ import Notice from "./Notice";
 import Login from "./Login";
 import QuestionList from "./QuestionList";
 import QuestionText from "./QuestionText";
+import UpdateQuestion from "./UpdateQuestion";
 
 // function App() {
 //   return (
@@ -37,6 +38,7 @@ function App() {
         <Route path="/notice" element={<Notice />} />
         <Route path="/sign-up" element={<Login />} />
         <Route path="/questions/:no" element={<QuestionText />} />
+        <Route path="/update-question/:no" element={<UpdateQuestion />} />
       </Routes>
     </Router>
   );
