@@ -3,46 +3,12 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../css/Questions.css";
-import { useNavigate } from "react-router-dom";
-
-const SERVER_URL = "http://localhost:4000/api/data";
-
-// function Item({ item }) {
-//   return (
-//     <div className="div">
-//       <span>{item.id}</span>
-//       <span className="title">{item.title}</span>
-//       <span>{item.writer}</span>
-//       <span>{item.createdAt}</span>
-//     </div>
-//   );
-// }
+import { useNavigate, useParams } from "react-router-dom";
+import useFetch from "../hooks/useFetch";
 
 function UpdateQuestion() {
-  const [questionList, setQuestionList] = useState(null);
-
-  const fetchData = async () => {
-    const response = await axios.get(SERVER_URL);
-    setQuestionList(response.data);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const onSubmitHandler = async (e) => {
-    e.preventDefault();
-    const title = e.target.title.value;
-    const text = e.target.text.value;
-    const writer = e.target.writer.value;
-    const createdAt = e.target.createdAt.value;
-    axios.post(SERVER_URL, { title, text, writer, createdAt });
-    fetchData();
-    alert("글이 작성되었습니다.");
-    history("/question_list");
-  };
-
-  const history = useNavigate();
+  const { no } = useParams();
+  const data = useFetch(`http://localhost:4000/api/data/${no}`);
 
   const today = () => {
     const now = new Date();
@@ -58,25 +24,21 @@ function UpdateQuestion() {
       <h3>문의 게시판</h3>
 
       <div className="container">
-        <form onSubmit={onSubmitHandler}>
+        <form>
           <div className="input">
             <label htmlFor="title">제목</label>
             <br></br>
-            <input name="title" id="title" placeholder="제목을 입력해주세요" />
+            <input name="title" id="title" defaultValue={data.title} />
           </div>
           <div className="input">
             <label htmlFor="writer">작성자</label>
             <br></br>
-            <input
-              name="writer"
-              id="writer"
-              placeholder="나중에 아이디로 대체됩니다."
-            />
+            <input name="writer" id="writer" defaultValue={data.writer} />
           </div>
           <div className="input">
             <label htmlFor="text">문의 내용</label>
             <br></br>
-            <textarea name="text" id="text" placeholder="내용을 입력해주세요" />
+            <textarea name="text" id="text" defaultValue={data.text} />
           </div>
           {/* 후에 로그인 데이터 (ID)로 가져옴 */}
           <div className="input">
